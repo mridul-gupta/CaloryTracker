@@ -1,7 +1,14 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
 
+    dependencies {
+        classpath(Build.androidBuildTools)
+        classpath(Build.hiltAndroidGradlePlugin)
+        classpath(Build.kotlinGradlePlugin)
+    }
 
-}// Top-level build file where you can add configuration options common to all sub-projects/modules.
+}
+
 plugins {
     id("com.android.application") version "7.1.0" apply false
     id("com.android.library") version "7.1.0" apply false

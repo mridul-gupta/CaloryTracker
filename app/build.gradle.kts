@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    id("dagger.hilt.android.plugin")
+    kotlin("android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -47,6 +49,18 @@ android {
 }
 
 dependencies {
+    implementation(Compose.compiler)
+    implementation(Compose.ui)
+    implementation(Compose.uiToolingPreview)
+    implementation(Compose.hiltNavigationCompose)
+    implementation(Compose.material)
+    implementation(Compose.runtime)
+    implementation(Compose.navigation)
+    implementation(Compose.viewModelCompose)
+    implementation(Compose.activityCompose)
+
+    implementation(DaggerHilt.hiltAndroid)
+    kapt(DaggerHilt.hiltCompiler)
 
     implementation("androidx.core:core-ktx:1.7.0")
     implementation("androidx.compose.ui:ui:${Compose.composeVersion}")
@@ -58,5 +72,4 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.3")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:$Compose.composeVersion")
-    debugImplementation("androidx.compose.ui:ui-tooling:$Compose.composeVersion")
 }
